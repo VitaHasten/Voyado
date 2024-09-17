@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Se05MxZKDSXVKhxI1sEsh2VJpv8PJZLBkNmkKe+RrGk=",
+  "Source": "VoyadoSearchApp.Api",
+  "BasePath": "_content/VoyadoSearchApp.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
