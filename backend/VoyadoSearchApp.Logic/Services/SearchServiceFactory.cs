@@ -5,29 +5,23 @@ using VoyadoSearchApp_Integrations.Services;
 
 namespace VoyadoSearchApp.Logic.Services
 {
-    
-        public class SearchServiceFactory : ISearchServiceFactory
+    public class SearchServiceFactory(IServiceProvider serviceProvider) : ISearchServiceFactory
+    {
+        private readonly IServiceProvider _serviceProvider = serviceProvider;
+
+        public ISearchService CreateSearchService(string searchEngine)
         {
-            private readonly IServiceProvider _serviceProvider;
-
-            public SearchServiceFactory(IServiceProvider serviceProvider)
+            return searchEngine.ToLower() switch
             {
-                _serviceProvider = serviceProvider;
-            }
+                "google" => _serviceProvider.GetRequiredService<GoogleService>(),
+                "bing" => _serviceProvider.GetRequiredService<BingService>(),
+                _ => throw new ArgumentException("Invalid search engine")
+            };
+        }
 
-            public ISearchService CreateSearchService(string searchEngine)
-            {
-                return searchEngine.ToLower() switch
-                {
-                    "google" => _serviceProvider.GetRequiredService<GoogleService>(),
-                    "bing" => _serviceProvider.GetRequiredService<BingService>(),
-                    _ => throw new ArgumentException("Invalid search engine")
-                };
-            }
-
-            public List<string> GetAllSearchEngineNames()
-            {
-                return new List<string> { "google", "bing" };
-            }
+        public List<string> GetAllSearchEngineNames()
+        {
+            return ["google", "bing"];
         }
     }
+}

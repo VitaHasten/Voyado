@@ -9,9 +9,9 @@ import { SearchResponseDto } from "../../../models/SearchResponseDto";
 const HomePage: React.FC = () => {
   const [inputText, setInputText] = useState("");
   const [isInputEntered, setIsInputEntered] = useState(false);
-  const [searchResponse, setSearchResponse] = useState<
-    SearchResponseDto | undefined
-  >(undefined);
+  const [searchResponse, setSearchResponse] = useState<number | undefined>(
+    undefined
+  );
 
   useEffect(() => {
     if (inputText.length > 0) setIsInputEntered(true);

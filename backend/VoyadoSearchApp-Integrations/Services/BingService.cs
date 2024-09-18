@@ -1,52 +1,54 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using System.Numerics;
 using VoyadoSearchApp_Integrations.Interfaces;
 
-public class BingService : ISearchService
+namespace VoyadoSearchApp_Integrations.Services
 {
-    private readonly HttpClient _httpClient;
-    private readonly string _apiKey;   
-    private readonly ILogger<BingService> _logger;
-
-    public BingService(HttpClient httpClient, IConfiguration configuration, ILogger<BingService> logger)
+    public class BingService(HttpClient httpClient, IConfiguration configuration, ILogger<BingService> logger) : ISearchService
     {
-        _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
-        _apiKey = configuration["BingSearch:ApiKey"] ?? throw new ArgumentNullException(nameof(configuration));        
-        _logger = logger;
-    }
+        private readonly HttpClient _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
+        private readonly string _apiKey = configuration["BingSearch:ApiKey"] ?? throw new ArgumentNullException(nameof(configuration));
+        private readonly ILogger<BingService> _logger = logger;
 
-    public async Task<long> GetTotalSearchHits(string query)
-    {
-        if (string.IsNullOrEmpty(query))
+        public async Task<long> GetTotalSearchHits(string query)
         {
-            throw new ArgumentNullException(nameof(query));
-        }
-        
-        var relativeUri = $"/v7.0/search?q={Uri.EscapeDataString(query)}";
-        
-        var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
-        request.Headers.Add("Ocp-Apim-Subscription-Key", _apiKey);
+            if (string.IsNullOrEmpty(query))
+            {
+                throw new ArgumentNullException(nameof(query));
+            }
 
-        try
-        {            
-            var response = await _httpClient.SendAsync(request);
-            response.EnsureSuccessStatusCode();
-            
-            var json = await response.Content.ReadAsStringAsync();
+            var relativeUri = $"/v7.0/search?q={Uri.EscapeDataString(query)}";
 
-            dynamic parsedJson = JsonConvert.DeserializeObject(json);
-            
-            long totalHits = parsedJson.webPages.totalEstimatedMatches;
+            var request = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            request.Headers.Add("Ocp-Apim-Subscription-Key", _apiKey);
 
-            _logger.LogInformation($"Total hits for query '{query}': {totalHits}");
-            return totalHits;
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error occurred while searching Bing.");
-            throw;
+            try
+            {
+                var response = await _httpClient.SendAsync(request);
+                response.EnsureSuccessStatusCode();
+
+                var json = await response.Content.ReadAsStringAsync();
+                
+                dynamic parsedJson = JsonConvert.DeserializeObject(json);
+
+                if (parsedJson != null)
+                {
+                    long totalHits = parsedJson.webPages.totalEstimatedMatches;
+
+                    _logger.LogInformation("Total Bing-hits for query '{query}': {totalHits}", query, totalHits);
+
+                    return totalHits;
+                }
+
+                else return -1;
+            }
+
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error occurred while searching Bing.");
+                throw;
+            }
         }
     }
 }

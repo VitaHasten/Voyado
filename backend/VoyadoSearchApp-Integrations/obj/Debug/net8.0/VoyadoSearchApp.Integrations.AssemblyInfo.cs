@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VoyadoSearchApp.Integrations")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+189642e2aa34e1a428f1bdea3497b3beeefb4ea3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ed907c71a1d9bab955a49cfe287c7a8ba06b94b6")]
 [assembly: System.Reflection.AssemblyProductAttribute("VoyadoSearchApp.Integrations")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VoyadoSearchApp.Integrations")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
