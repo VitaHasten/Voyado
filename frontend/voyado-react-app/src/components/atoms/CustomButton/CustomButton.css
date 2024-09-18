@@ -1,27 +1,23 @@
-/* Grundstil för knappen */
 button {
     transform: scale(1);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    z-index: 1; /* Se till att knappen ligger ovanpå den roterande border */
-  }
+    z-index: 1; 
+  }  
   
-  /* Animation när isInputEntered är true */
   button.animate {
     transform: scale(1.1);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    background-color: #ff6f61; /* Ändrar färg när animationen körs */
-  }
+    background-color: #ff6f61; 
+  }  
   
-  /* Hover-effekt när knappen har klassen animate */
   button.animate:hover {
-    transform: scale(1.15); /* Ökar skalan något mer på hover */
-    background-color: #ff856e; /* Lättare färg när man hovrar */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Starkare skugga på hover */
-  }
+    transform: scale(1.15); 
+    background-color: #ff856e; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); 
+  }  
   
-  /* Pseudo-element för roterande border */
   button.animate::before {
     content: "";
     position: absolute;
@@ -29,20 +25,19 @@ button {
     left: -5px;
     width: calc(100% + 10px);
     height: calc(100% + 10px);
-    border: 2px solid #ff6f61; /* Färgen på den roterande border */
+    border: 2px solid #ff6f61; 
     border-radius: 5px;
     box-sizing: border-box;
     animation: rotate-border 2s linear infinite;
-    z-index: -1; /* Placera border bakom knappen */
+    z-index: -1; 
   }
   
-  /* Ändra border-färg och hastighet på hover */
+  
   button.animate:hover::before {
-    border-color: #ff856e; /* Ändra border-färgen på hover */
-    animation: rotate-border-hover 1s linear infinite; /* Snabbare rotation */
-  }
+    border-color: #ff856e; 
+    animation: rotate-border-hover 1s linear infinite; 
+  }  
   
-  /* Nyckelbildrutor för roterande border */
   @keyframes rotate-border {
     0% {
       transform: rotate(0deg);
@@ -50,9 +45,8 @@ button {
     100% {
       transform: rotate(360deg);
     }
-  }
+  }  
   
-  /* Nyckelbildrutor för snabbare rotation på hover */
   @keyframes rotate-border-hover {
     0% {
       transform: rotate(0deg);

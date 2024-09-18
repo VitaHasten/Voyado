@@ -5,6 +5,6 @@ namespace VoyadoSearchApp.Logic.Interfaces
 {
     public interface ISearchAggregatorService
     {
-        public Task<long> AggregateSearchResults(string query);
+        public Task<SearchResponseDto> AggregateSearchResults(string query);
     }
 }

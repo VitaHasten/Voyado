@@ -15,5 +15,6 @@ namespace VoyadoSearchApp_Integrations.Dto
         public long NumberOfGoogleHits { get; set; }
         public long NumberOfBingHits { get; set; }
         public long TotalSumOfHits { get; set; }
+        public int ResponseTime { get; set; }
     }
 }

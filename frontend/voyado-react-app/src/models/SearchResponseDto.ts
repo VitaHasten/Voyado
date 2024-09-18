@@ -5,4 +5,5 @@ export interface SearchResponseDto {
     numberOfGoogleHits: number;
     numberOfBingHits: number;
     totalSumOfHits: number;
+    responseTime: number;
 }

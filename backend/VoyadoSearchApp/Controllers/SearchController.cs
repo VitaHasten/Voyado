@@ -14,7 +14,7 @@ namespace VoyadoSearchApp.Api.Controllers
         //private readonly ILogger<SearchController> _logger = logger;
 
         [HttpGet()]
-        public async Task<ActionResult<long>> PerformSearch(string searchString)
+        public async Task<ActionResult<SearchResponseDto>> PerformSearch(string searchString)
         {
             var searchResponse = await _searchAggregatorService.AggregateSearchResults(searchString);            
 

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using VoyadoSearchApp.Logic.Interfaces;
+using VoyadoSearchApp_Integrations.Dto;
 using VoyadoSearchApp_Integrations.Services;
 
 namespace VoyadoSearchApp.Logic.Services
@@ -11,28 +12,58 @@ namespace VoyadoSearchApp.Logic.Services
         private static readonly char[] separator = [' '];
         private readonly ILogger<SearchAggregatorService> _logger = logger;
 
-        public async Task<long> AggregateSearchResults(string query)
-        {            
+        public async Task<SearchResponseDto> AggregateSearchResults(string query)
+        {
             var stopwatch = Stopwatch.StartNew();
+            var response = new SearchResponseDto();
 
-            long totalHits = 0;
-            var searchTerms = query.Split(separator, StringSplitOptions.RemoveEmptyEntries);
-            var searchEngines = _searchServiceFactory.GetAllSearchEngineNames();
-
-            foreach (var term in searchTerms)
+            try
             {
-                foreach (var engine in searchEngines)
-                {
-                    var searchService = _searchServiceFactory.CreateSearchService(engine);
-                    totalHits += await searchService.GetTotalSearchHits(term);
-                }
-            }
-            
-            stopwatch.Stop();
-            
-            _logger.LogInformation("Total aggregation time for query '{query}' took {stopwatch.ElapsedMilliseconds} ms", query, stopwatch.ElapsedMilliseconds);            
+                var searchTerms = query.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+                var searchEngines = _searchServiceFactory.GetAllSearchEngineNames();
+                long googleHits = 0;
+                long bingHits = 0;
 
-            return totalHits;
+                foreach (var term in searchTerms)
+                {
+                    foreach (var engine in searchEngines)
+                    {
+                        var searchService = _searchServiceFactory.CreateSearchService(engine);
+                        var hits = await searchService.GetTotalSearchHits(term);
+
+                        if (engine.Equals("google", StringComparison.OrdinalIgnoreCase))
+                        {
+                            googleHits += hits;
+                        }
+                        else if (engine.Equals("bing", StringComparison.OrdinalIgnoreCase))
+                        {
+                            bingHits += hits;
+                        }
+                    }
+                }
+
+                stopwatch.Stop();
+                
+                response.Success = true;
+                response.NumberOfGoogleHits = googleHits;
+                response.NumberOfBingHits = bingHits;
+                response.TotalSumOfHits = googleHits + bingHits;
+                response.ResponseTime = (int)stopwatch.ElapsedMilliseconds;
+                response.SearchResponseString = $"Din sökning genererade totalt {response.TotalSumOfHits} sökträffar.";
+
+                _logger.LogInformation("Total aggregation time for query '{query}' took {stopwatch.ElapsedMilliseconds} ms", query, stopwatch.ElapsedMilliseconds);
+            }
+            catch (Exception ex)
+            {                
+                stopwatch.Stop();
+                response.Success = false;
+                response.ErrorResponseString = $"An error occurred during the search: {ex.Message}";
+                response.ResponseTime = (int)stopwatch.ElapsedMilliseconds;
+
+                _logger.LogError(ex, "An error occurred while aggregating search results for query: {query}", query);
+            }
+
+            return response;
         }
     }
 }

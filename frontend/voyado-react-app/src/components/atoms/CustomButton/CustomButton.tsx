@@ -1,4 +1,4 @@
-import { Button } from "react-bootstrap";
+import { Button, Spinner } from "react-bootstrap";
 import "./CustomButton.css";
 
 export interface CustomButtonProps {
@@ -8,15 +8,22 @@ export interface CustomButtonProps {
   style?: React.CSSProperties;
   size?: "sm" | "lg";
   onClick?: () => void;
+  isSearching: boolean;
+  performedSearchString?: string;
+  inputText?: string;
 }
 
 const CustomButton: React.FC<CustomButtonProps> = (props) => {
   return (
     <Button
-      className={`${props.classname} ${props.isInputEntered ? "animate" : ""}`}
+      className={`${props.classname} ${
+        props.isInputEntered && props.performedSearchString !== props.inputText
+          ? "animate"
+          : ""
+      }`}
       onClick={props.isInputEntered ? props.onClick : undefined}
     >
-      {props.buttonText}
+      {!props.isSearching ? props.buttonText : <Spinner />}
     </Button>
   );
 };
