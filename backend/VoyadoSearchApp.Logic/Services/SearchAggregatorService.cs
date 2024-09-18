@@ -10,9 +10,9 @@ namespace VoyadoSearchApp.Logic.Services
         private readonly ISearchServiceFactory _searchServiceFactory = searchServiceFactory;
         private static readonly char[] separator = [' '];
 
-        public async Task<BigInteger> AggregateSearchResults(string query)
+        public async Task<long> AggregateSearchResults(string query)
         {
-            BigInteger totalHits = 0;
+            long totalHits = 0;
                         
             var searchTerms = query.Split(separator, StringSplitOptions.RemoveEmptyEntries);
             var searchEngines = _searchServiceFactory.GetAllSearchEngineNames();

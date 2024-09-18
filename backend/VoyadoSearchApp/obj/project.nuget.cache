@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "xy9s8s8Kk/SPEKKJG9r+matLb0ADRXuCtsRao+LMzDyu+fFxskhjQ7D7z+A7tzPV6IcBS/LM56EPWbLygPI4Jg==",
+  "dgSpecHash": "pECTgl+K2wx/6ieEPn5/anccC7XgkwVLfcjf0xih/ATHTz846m6wsTdhdRNcnSbyXfGqX2t73T8mSmSGIiWy4Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\holge\\Desktop\\Repos\\Voyado\\backend\\VoyadoSearchApp\\VoyadoSearchApp.Api.csproj",
   "expectedPackageFiles": [
@@ -13,6 +13,7 @@
     "C:\\Users\\holge\\.nuget\\packages\\microsoft.extensions.options\\8.0.0\\microsoft.extensions.options.8.0.0.nupkg.sha512",
     "C:\\Users\\holge\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
     "C:\\Users\\holge\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\holge\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\holge\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "C:\\Users\\holge\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
     "C:\\Users\\holge\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",

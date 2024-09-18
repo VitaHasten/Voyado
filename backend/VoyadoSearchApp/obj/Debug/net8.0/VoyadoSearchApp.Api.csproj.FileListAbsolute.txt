@@ -71,3 +71,4 @@ C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp\bin\Debug\net8.0\Voy
 C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp\bin\Debug\net8.0\VoyadoSearchApp.Logic.pdb
 C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp\bin\Debug\net8.0\VoyadoSearchApp.Integrations.pdb
 C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp\bin\Debug\net8.0\Newtonsoft.Json.dll

@@ -21,7 +21,7 @@ namespace VoyadoSearchApp_Integrations.Services
             _logger = logger;
         }
 
-        public async Task<BigInteger> GetTotalSearchHits(string query)
+        public async Task<long> GetTotalSearchHits(string query)
         {
             var requestUrl = $"?key={_apiKey}&cx={_cx}&q={query}";
             var response = await _httpClient.GetAsync(requestUrl);            
@@ -30,12 +30,12 @@ namespace VoyadoSearchApp_Integrations.Services
             var content = await response.Content.ReadAsStringAsync();
             var jsonDoc = JsonDocument.Parse(content);
 
-            BigInteger totalHits = 0;
+            long totalHits = 0;
             if (jsonDoc.RootElement.TryGetProperty("searchInformation", out var searchInfo))
             {
                 if (searchInfo.TryGetProperty("totalResults", out var totalResults))
                 {
-                    totalHits = int.Parse(totalResults.GetString() ?? "0");
+                    totalHits = long.Parse(totalResults.GetString() ?? "0");
                 }
             }
 

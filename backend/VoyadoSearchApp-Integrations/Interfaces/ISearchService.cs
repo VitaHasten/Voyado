@@ -10,6 +10,6 @@ namespace VoyadoSearchApp_Integrations.Interfaces
 {
     public interface ISearchService
     {        
-        Task<BigInteger> GetTotalSearchHits(string term);
+        Task<long> GetTotalSearchHits(string term);
     }
 }

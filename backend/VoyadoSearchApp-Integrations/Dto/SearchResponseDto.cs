@@ -12,8 +12,8 @@ namespace VoyadoSearchApp_Integrations.Dto
         public bool Success { get; set; }
         public string SearchResponseString { get; set; } = string.Empty;
         public string? ErrorResponseString { get; set; }
-        public BigInteger NumberOfGoogleHits { get; set; }
-        public BigInteger NumberOfBingHits { get; set; }
-        public BigInteger TotalSumOfHits { get; set; }
+        public long NumberOfGoogleHits { get; set; }
+        public long NumberOfBingHits { get; set; }
+        public long TotalSumOfHits { get; set; }
     }
 }
