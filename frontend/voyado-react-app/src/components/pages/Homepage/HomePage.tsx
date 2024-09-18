@@ -7,6 +7,7 @@ import CustomButton from "../../atoms/CustomButton/CustomButton";
 import { SearchResponseDto } from "../../../models/SearchResponseDto";
 import SearchResponseDiv from "../../molecules/SearchResponseDiv";
 import ValidationMessageDiv from "../../molecules/ValidationMessageDiv";
+import { AxiosError } from "axios";
 
 const HomePage: React.FC = () => {
   const [inputText, setInputText] = useState("");
@@ -14,6 +15,7 @@ const HomePage: React.FC = () => {
   const [isSearching, setIsSearching] = useState(false);
   const [performedSearchString, setPerformedSearchString] = useState("");
   const [isMaxLengthReached, setIsMaxLengthReached] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [searchResponse, setSearchResponse] = useState<
     SearchResponseDto | undefined
   >(undefined);
@@ -32,12 +34,35 @@ const HomePage: React.FC = () => {
     if (!isInputEntered || performedSearchString === inputText) return;
 
     setIsSearching(true);
+    setErrorMessage(null);
     try {
       const result = await GetSearchResponse(inputText);
       setPerformedSearchString(inputText);
       setSearchResponse(result);
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error during search:", error);
+
+      if (error.isAxiosError) {
+        const axiosError = error as AxiosError;
+
+        if (axiosError.code === "ERR_NETWORK") {
+          setErrorMessage(
+            `Nätverksfel: Kunde inte ansluta till servern. Detaljer: ${axiosError.message}`
+          );
+        } else if (axiosError.response) {
+          setErrorMessage(
+            `Serverfel: ${axiosError.response.status} - ${
+              axiosError.response.statusText
+            }. Data: ${JSON.stringify(axiosError.response.data)}`
+          );
+        } else {
+          setErrorMessage(`Axios fel: ${axiosError.message}`);
+        }
+      } else {
+        setErrorMessage(
+          `Ett fel inträffade: ${error.message || JSON.stringify(error)}`
+        );
+      }
     } finally {
       setIsSearching(false);
     }
@@ -56,6 +81,8 @@ const HomePage: React.FC = () => {
           <ValidationMessageDiv
             maxLetters={MAX_LETTERS_INPUTFIELD}
             isMaxLettersReached={isMaxLengthReached}
+            backendError={searchResponse?.errorResponseString}
+            errorMessage={errorMessage}
           />
         </Col>
         <Col
