@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "hZkinTgxIKVoaYDywx6MhapErh5kaUbAc52Z+GA3wu3R6qLUGHQFDHQp+VcDfnFqPQ0GMOcdKeOukpDpjeww8g==",
+  "dgSpecHash": "XcdkH8z6I8yY1Bp2bdA8puzCgPS6gzrkqrrIbSjeKnT8PEQRum8aP41aUChKV7ehnO+QU33I3bXe3ur/1Pd2hg==",
   "success": true,
   "projectFilePath": "C:\\Users\\holge\\Desktop\\Repos\\Voyado\\backend\\VoyadoSearchApp-Integrations\\VoyadoSearchApp.Integrations.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\holge\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\holge\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
+    "C:\\Users\\holge\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\holge\\.nuget\\packages\\microsoft.extensions.logging\\8.0.0\\microsoft.extensions.logging.8.0.0.nupkg.sha512",
+    "C:\\Users\\holge\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\holge\\.nuget\\packages\\microsoft.extensions.options\\8.0.0\\microsoft.extensions.options.8.0.0.nupkg.sha512",
+    "C:\\Users\\holge\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

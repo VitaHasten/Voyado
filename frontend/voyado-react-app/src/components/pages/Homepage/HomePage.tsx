@@ -14,9 +14,13 @@ const HomePage: React.FC = () => {
   >(undefined);
 
   useEffect(() => {
-    if (inputText.length > 1) setIsInputEntered(true);
+    if (inputText.length > 0) setIsInputEntered(true);
     else setIsInputEntered(false);
   }, [inputText]);
+
+  useEffect(() => {
+    console.log(searchResponse);
+  }, [searchResponse]);
 
   const searchHandler = async () => {
     if (!isInputEntered) return;

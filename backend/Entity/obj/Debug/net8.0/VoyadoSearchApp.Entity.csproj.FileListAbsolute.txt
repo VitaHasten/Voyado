@@ -1,0 +1,12 @@
+C:\Users\holge\Desktop\Repos\Voyado\backend\Entity\bin\Debug\net8.0\VoyadoSearchApp.Entity.deps.json
+C:\Users\holge\Desktop\Repos\Voyado\backend\Entity\bin\Debug\net8.0\VoyadoSearchApp.Entity.dll
+C:\Users\holge\Desktop\Repos\Voyado\backend\Entity\bin\Debug\net8.0\VoyadoSearchApp.Entity.pdb
+C:\Users\holge\Desktop\Repos\Voyado\backend\Entity\obj\Debug\net8.0\VoyadoSearchApp.Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\holge\Desktop\Repos\Voyado\backend\Entity\obj\Debug\net8.0\VoyadoSearchApp.Entity.AssemblyInfoInputs.cache
+C:\Users\holge\Desktop\Repos\Voyado\backend\Entity\obj\Debug\net8.0\VoyadoSearchApp.Entity.AssemblyInfo.cs
+C:\Users\holge\Desktop\Repos\Voyado\backend\Entity\obj\Debug\net8.0\VoyadoSearchApp.Entity.csproj.CoreCompileInputs.cache
+C:\Users\holge\Desktop\Repos\Voyado\backend\Entity\obj\Debug\net8.0\VoyadoSearchApp.Entity.sourcelink.json
+C:\Users\holge\Desktop\Repos\Voyado\backend\Entity\obj\Debug\net8.0\VoyadoSearchApp.Entity.dll
+C:\Users\holge\Desktop\Repos\Voyado\backend\Entity\obj\Debug\net8.0\refint\VoyadoSearchApp.Entity.dll
+C:\Users\holge\Desktop\Repos\Voyado\backend\Entity\obj\Debug\net8.0\VoyadoSearchApp.Entity.pdb
+C:\Users\holge\Desktop\Repos\Voyado\backend\Entity\obj\Debug\net8.0\ref\VoyadoSearchApp.Entity.dll

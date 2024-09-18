@@ -64,3 +64,10 @@ C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp\obj\Debug\net8.0\ref
 C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp\obj\Debug\net8.0\VoyadoSearchApp.Api.pdb
 C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp\obj\Debug\net8.0\VoyadoSearchApp.Api.genruntimeconfig.cache
 C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp\obj\Debug\net8.0\ref\VoyadoSearchApp.Api.dll
+C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp\bin\Debug\net8.0\VoyadoSearchApp.Entity.dll
+C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp\bin\Debug\net8.0\VoyadoSearchApp.Integrations.dll
+C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp\bin\Debug\net8.0\VoyadoSearchApp.Logic.dll
+C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp\bin\Debug\net8.0\VoyadoSearchApp.Entity.pdb
+C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp\bin\Debug\net8.0\VoyadoSearchApp.Logic.pdb
+C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp\bin\Debug\net8.0\VoyadoSearchApp.Integrations.pdb
+C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll

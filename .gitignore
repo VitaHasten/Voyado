@@ -3,3 +3,8 @@
 *.user
 *.suo
 *.vscode/
+
+# Ignore appsettings files to avoid including sensitive data like API keys
+appsettings.*.json
+
+

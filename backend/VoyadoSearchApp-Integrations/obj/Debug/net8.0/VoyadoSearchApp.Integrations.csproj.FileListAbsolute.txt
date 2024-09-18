@@ -1,0 +1,16 @@
+C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp-Integrations\bin\Debug\net8.0\VoyadoSearchApp.Integrations.deps.json
+C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp-Integrations\bin\Debug\net8.0\VoyadoSearchApp.Integrations.dll
+C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp-Integrations\bin\Debug\net8.0\VoyadoSearchApp.Integrations.pdb
+C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp-Integrations\bin\Debug\net8.0\VoyadoSearchApp.Entity.dll
+C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp-Integrations\bin\Debug\net8.0\VoyadoSearchApp.Entity.pdb
+C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp-Integrations\obj\Debug\net8.0\VoyadoSearchApp.Integrations.csproj.AssemblyReference.cache
+C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp-Integrations\obj\Debug\net8.0\VoyadoSearchApp.Integrations.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp-Integrations\obj\Debug\net8.0\VoyadoSearchApp.Integrations.AssemblyInfoInputs.cache
+C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp-Integrations\obj\Debug\net8.0\VoyadoSearchApp.Integrations.AssemblyInfo.cs
+C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp-Integrations\obj\Debug\net8.0\VoyadoSearchApp.Integrations.csproj.CoreCompileInputs.cache
+C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp-Integrations\obj\Debug\net8.0\VoyadoSearchApp.Integrations.sourcelink.json
+C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp-Integrations\obj\Debug\net8.0\VoyadoSearchApp.Integrations.csproj.CopyComplete
+C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp-Integrations\obj\Debug\net8.0\VoyadoSearchApp.Integrations.dll
+C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp-Integrations\obj\Debug\net8.0\refint\VoyadoSearchApp.Integrations.dll
+C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp-Integrations\obj\Debug\net8.0\VoyadoSearchApp.Integrations.pdb
+C:\Users\holge\Desktop\Repos\Voyado\backend\VoyadoSearchApp-Integrations\obj\Debug\net8.0\ref\VoyadoSearchApp.Integrations.dll
