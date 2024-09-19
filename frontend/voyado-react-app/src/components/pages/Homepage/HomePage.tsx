@@ -19,7 +19,7 @@ const HomePage: React.FC = () => {
   const [searchResponse, setSearchResponse] = useState<
     SearchResponseDto | undefined
   >(undefined);
-  const MAX_LETTERS_INPUTFIELD: number = 50;
+  const MAX_LETTERS_INPUTFIELD: number = 75;
 
   useEffect(() => {
     if (inputText.length > 0) setIsInputEntered(true);
