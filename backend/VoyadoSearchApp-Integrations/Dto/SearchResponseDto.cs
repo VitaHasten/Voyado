@@ -9,8 +9,7 @@ namespace VoyadoSearchApp_Integrations.Dto
 {
     public class SearchResponseDto
     {
-        public bool Success { get; set; }
-        public string SearchResponseString { get; set; } = string.Empty;
+        public bool Success { get; set; }        
         public string? ErrorResponseString { get; set; }
         public long NumberOfGoogleHits { get; set; }
         public long NumberOfBingHits { get; set; }

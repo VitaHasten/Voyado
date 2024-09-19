@@ -38,7 +38,9 @@ const HomePage: React.FC = () => {
     try {
       const result = await GetSearchResponse(inputText);
       setPerformedSearchString(inputText);
-      setSearchResponse(result);
+      if (result.success) setSearchResponse(result);
+      else if (result.errorResponseString !== undefined)
+        setErrorMessage(result.errorResponseString);
     } catch (error: any) {
       console.error("Error during search:", error);
 

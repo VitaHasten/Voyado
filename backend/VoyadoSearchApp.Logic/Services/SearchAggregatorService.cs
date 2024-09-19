@@ -48,8 +48,7 @@ namespace VoyadoSearchApp.Logic.Services
                 response.NumberOfGoogleHits = googleHits;
                 response.NumberOfBingHits = bingHits;
                 response.TotalSumOfHits = googleHits + bingHits;
-                response.ResponseTime = (int)stopwatch.ElapsedMilliseconds;
-                response.SearchResponseString = $"Din sökning genererade totalt {response.TotalSumOfHits} sökträffar.";
+                response.ResponseTime = (int)stopwatch.ElapsedMilliseconds;                
 
                 _logger.LogInformation("Total aggregation time for query '{query}' took {stopwatch.ElapsedMilliseconds} ms", query, stopwatch.ElapsedMilliseconds);
             }
