@@ -5,8 +5,6 @@ using VoyadoSearchApp_Integrations.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-/*var googleApiKey = builder.Configuration["GoogleSearch:ApiKey"];
-var googleCx = builder.Configuration["GoogleSearch:Cx"];*/
 var googleBaseAddress = builder.Configuration["GoogleSearch:BaseAddress"];
 
 var bingBaseAddress = builder.Configuration["BingSearch:BaseAddress"];
@@ -16,9 +14,7 @@ if (googleBaseAddress != null)
 {
     builder.Services.AddHttpClient<GoogleService>(client =>
     {
-        client.BaseAddress = new Uri(googleBaseAddress);        
-        /*client.DefaultRequestHeaders.Add("ApiKey", googleApiKey);
-        client.DefaultRequestHeaders.Add("Cx", googleCx);*/
+        client.BaseAddress = new Uri(googleBaseAddress); 
     });
 }
 

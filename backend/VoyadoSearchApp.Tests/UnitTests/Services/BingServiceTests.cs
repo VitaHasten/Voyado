@@ -1,20 +1,16 @@
 ﻿using Microsoft.Extensions.Logging;
 using Moq.Protected;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using VoyadoSearchApp_Integrations.Services;
 using Microsoft.Extensions.Configuration;
+using VoyadoSearchApp.Logic.Services;
 using Newtonsoft.Json;
 using Xunit;
 
 namespace VoyadoSearchApp.Tests.UnitTests.Services
 {
-    public class GoogleServiceTests
+    public class BingServiceTests
     {
         [Fact]
         public async Task GetTotalSearchHits_ReturnsCorrectHits()
@@ -29,25 +25,24 @@ namespace VoyadoSearchApp.Tests.UnitTests.Services
                 .ReturnsAsync(new HttpResponseMessage
                 {
                     StatusCode = HttpStatusCode.OK,
-                    Content = new StringContent("{\"searchInformation\": {\"totalResults\": \"1000\"}}")
+                    Content = new StringContent("{\"webPages\": {\"totalEstimatedMatches\": 500}}")
                 });
-            
+
             var httpClient = new HttpClient(mockHttpMessageHandler.Object)
             {
-                BaseAddress = new Uri("https://www.googleapis.com/customsearch/v1")
+                BaseAddress = new Uri("https://api.bing.microsoft.com/")
             };
-            
-            var configuration = new Mock<IConfiguration>();
-            configuration.Setup(config => config["GoogleSearch:ApiKey"]).Returns("dummy-api-key");
-            configuration.Setup(config => config["GoogleSearch:Cx"]).Returns("dummy-cx-id");
 
-            var googleService = new GoogleService(httpClient, configuration.Object, Mock.Of<ILogger<GoogleService>>());
+            var configuration = new Mock<IConfiguration>();
+            configuration.Setup(config => config["BingSearch:ApiKey"]).Returns("dummy-api-key");
+
+            var bingService = new BingService(httpClient, configuration.Object, Mock.Of<ILogger<BingService>>());
 
             // Act
-            var result = await googleService.GetTotalSearchHits("test query");
+            var result = await bingService.GetTotalSearchHits("test query");
 
             // Assert
-            Assert.Equal(1000, result);
+            Assert.Equal(500, result);
         }
 
         [Fact]
@@ -68,18 +63,18 @@ namespace VoyadoSearchApp.Tests.UnitTests.Services
 
             var httpClient = new HttpClient(mockHttpMessageHandler.Object)
             {
-                BaseAddress = new Uri("https://www.googleapis.com/customsearch/v1")
+                BaseAddress = new Uri("https://api.bing.microsoft.com/")
             };
 
             var configuration = new Mock<IConfiguration>();
-            configuration.Setup(config => config["GoogleSearch:ApiKey"]).Returns("dummy-api-key");
-            configuration.Setup(config => config["GoogleSearch:Cx"]).Returns("dummy-cx-id");
+            configuration.Setup(config => config["BingSearch:ApiKey"]).Returns("dummy-api-key");
 
-            var googleService = new GoogleService(httpClient, configuration.Object, Mock.Of<ILogger<GoogleService>>());
+            var bingService = new BingService(httpClient, configuration.Object, Mock.Of<ILogger<BingService>>());
 
             // Act & Assert
-            await Assert.ThrowsAsync<InvalidOperationException>(() => googleService.GetTotalSearchHits("test query"));
+            await Assert.ThrowsAsync<JsonReaderException>(() => bingService.GetTotalSearchHits("test query"));
         }
+
 
         [Fact]
         public async Task GetTotalSearchHits_HandlesApiError()
@@ -99,17 +94,16 @@ namespace VoyadoSearchApp.Tests.UnitTests.Services
 
             var httpClient = new HttpClient(mockHttpMessageHandler.Object)
             {
-                BaseAddress = new Uri("https://www.googleapis.com/customsearch/v1")
+                BaseAddress = new Uri("https://api.bing.microsoft.com/")
             };
 
             var configuration = new Mock<IConfiguration>();
-            configuration.Setup(config => config["GoogleSearch:ApiKey"]).Returns("dummy-api-key");
-            configuration.Setup(config => config["GoogleSearch:Cx"]).Returns("dummy-cx-id");
+            configuration.Setup(config => config["BingSearch:ApiKey"]).Returns("dummy-api-key");
 
-            var googleService = new GoogleService(httpClient, configuration.Object, Mock.Of<ILogger<GoogleService>>());
+            var bingService = new BingService(httpClient, configuration.Object, Mock.Of<ILogger<BingService>>());
 
             // Act & Assert
-            await Assert.ThrowsAsync<HttpRequestException>(() => googleService.GetTotalSearchHits("test query"));
+            await Assert.ThrowsAsync<HttpRequestException>(() => bingService.GetTotalSearchHits("test query"));
         }
     }
 }

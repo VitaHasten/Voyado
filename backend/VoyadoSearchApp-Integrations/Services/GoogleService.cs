@@ -36,16 +36,14 @@ namespace VoyadoSearchApp_Integrations.Services
                         totalHits = long.Parse(totalResults.GetString() ?? "0");
                     }
                 }
-                                
-                _logger.LogInformation("Total Google-hits for query '{query}': {totalHits}", query, totalHits);
 
                 return totalHits;
             }
-            catch (Exception ex)
-            {                
-                _logger.LogError(ex, "Error occurred while searching Google for query: {query}", query);
-                throw;
+            catch (JsonException ex)
+            {
+                _logger.LogError(ex, "Error parsing JSON response from Google API");
+                throw new InvalidOperationException("Invalid JSON response", ex);
             }
-        }
+        }    
     }
 }
