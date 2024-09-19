@@ -1,6 +1,5 @@
 export interface SearchResponseDto {
-    success: boolean;
-    searchResponseString: string;
+    success: boolean;    
     errorResponseString?: string;
     numberOfGoogleHits: number;
     numberOfBingHits: number;
